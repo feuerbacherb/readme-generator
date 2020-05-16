@@ -1,32 +1,66 @@
 const inquirer = require('inquirer');
+const { writeFile, readFile } = require('./utils/generateReadme');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
 const promptUser = () => {
    return inquirer.prompt([
       {
          type: 'input',
          name: 'title',
-         message: 'What is the title of your project?'
+         message: 'What is the title of your project? (REQUIRED)',
+         validate: titleInput => {
+            if (titleInput) {
+               return true;
+            } else {
+               console.log('Enter the name of your project.');
+               return false;
+            }
+         }
       },
       {
          type: 'input',
          name: 'description',
-         message: 'Type in a description of your project: (REQUIRED)'
+         message: 'Type in a description of your project: (REQUIRED)',
+         validate: descriptionInput => {
+            if (descriptionInput) {
+               return true;
+            } else {
+               console.log('Enter the description of your project.');
+               return false;
+            }
+         }
       },
       {
          type: 'input',
          name: 'installation',
-         message: 'Type instructions for how to install your project: (REQUIRED)'
+         message: 'Type instructions for how to install your project: (REQUIRED)',
+         validate: installationInput => {
+            if (installationInput) {
+               return true;
+            } else {
+               console.log('Enter the installation instructions for your project.');
+               return false;
+            }
+         }
       },
       {
          type: 'input',
          name: 'usage',
-         message: 'Type in a description of how the user would use your project: (REQUIRED)'
+         message: 'Type in a description of how the user would use your project: (REQUIRED)',
+         validate: usageInput => {
+            if (usageInput) {
+               return true;
+            } else {
+               console.log("Enter the steps the user would need to take to user the project.");
+               return false;
+            }
+         }
       },
       {
          type: 'list',
          name: 'license',
          message: 'Choose a license to include in the readme.md:',
-         choices: ['Apache License 2.0', 'GNU GPLv3', 'MIT', 'Mozilla Public License 2.0', 'The Unlicense']
+         choices: ['Apache License 2.0', 'GNU GPLv3', 'MIT', 'Mozilla Public License 2.0', 'Unlicense']
       },
       {
          type: 'input',
@@ -51,7 +85,35 @@ const promptUser = () => {
    ]);
 };
 
-promptUser().then(answers => console.log(answers));
+const testData = {
+   title: 'Run Buddy',
+   description: 'A website designed to match dominants with submissives.',
+   installation: 'Put on full leather, attach the ball gag, and strap yourself in to the body holder.  Now, close your eyes.',
+   usage: 'By using a bit of imagination, a user can be taken to a land of infinite pleasure where they can release the everyday responsibilities and put someone else in charge.',
+   license: 'MIT',
+   contributions: 'Do not take my code.',
+   tests: 'find someone with a riding crop and tight leathers.',
+   email: 'barooskavitch@aol.com',
+   github: 'barooskavitch'
+ }
+
+
+// generateMarkdown(testData)
+//    .then(data => {
+//       writeFile(data);
+//    });
+
+promptUser()
+   .then(answers => {
+      return generateMarkdown(answers);
+   })
+   .then(data => {
+      return writeFile(data);
+   });
+
+
+//readFile();
+//promptUser().then(answers => console.log(answers));
 
 // // array of questions for user
 // const questions = [
@@ -69,3 +131,4 @@ promptUser().then(answers => console.log(answers));
 
 // // function call to initialize program
 // init();
+
