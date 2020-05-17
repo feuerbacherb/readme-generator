@@ -22,7 +22,7 @@ Download the GitHub repository on to a computer that has node.js installed on it
 ## Usage
 Using a program such as Bash, navigate to the readme-generator folder and type "node index.js." Follow the prompts.  Your newly created readme.md file is located in the ./dist folder.
 
-![gif](./src/Ch9Chal.gif)
+![gif](https://github.com/feuerbacherb/readme-generator/blob/master/src/Ch9Chal%20.gif?raw=true)
 
 ## License
 MIT License
