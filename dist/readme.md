@@ -1,5 +1,5 @@
 
-# Run buddy
+# Readme Generator
 
 ![](https://img.shields.io/static/v1?label=license&message=MIT&color=green)
   
@@ -15,13 +15,13 @@
 * [Contact Me](#contact-me)
 
 ## Description
-describe it
+An application programmed in node.js that asks the user a series of questions in order to create a readme.md file for their project.
 
 ## Installation
-install it
+Download the GitHub repository on to a computer that has node.js installed on it.
 
 ## Usage
-use it
+Using a program such as bash, navigate to the readme-generator folder and type "node index.js."
 
 ## License
 MIT License
@@ -47,12 +47,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## Contributions
-contribute to it
+I am not looking for contributors at this time.
 
 ## Tests
-test it
+Not applicable
 
 ## Contact Me
-[Email](mailto:feuerbacherb@gmail.com)
+* [Email](mailto:feuerbacherb@gmail.com)
 
-[GitHub](https://www.github.com/feuerbacherb)
+* [GitHub](https://www.github.com/feuerbacherb)
