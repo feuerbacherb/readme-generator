@@ -54,11 +54,6 @@ const getLicense = license => {
   const arrLicense = license.split(" ");
   let fileName = arrLicense[0] + ".txt";
 
-  //return readFile(fileName);
-  // readFile(fileName)
-  //   .then(data => {
-  //     return data;
-  //   });
   const content = fs.readFileSync('./src/' + fileName, 'utf8');
   return content;
 }
